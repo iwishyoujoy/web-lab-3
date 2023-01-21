@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400&display=swap');
+
+:root{
+    --main-radius: 10px;
+    --main-padding: 5px;
+    --main-margin: 5px;
+    --dark-blue: rgb(4, 30, 55);
+    --pink-graph-transparent: rgba(251,160,159,80%);
+    --blue-graph-transparent: rgb(4, 30, 55, 30%);
+    --light-blue: rgb(4, 30, 55, 50%);
+    --light-background-color: rgb(255, 255, 255, 50%);
+    --background-color: rgba(244,244,244,255);
+}
+
+.pointer {cursor: pointer;}
+
+body{
+    background-image: url("#{resource['images/background-2.jpg']}");
+    background-size: cover;
+    font-family: 'Unbounded', cursive;
+    font-size: medium;
+    font-weight: 400;
+    color: var(--dark-blue);
+}
+
+.container{
+    display: grid;
+    margin-left: 20%;
+    margin-right: 20%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "author author"
+        "nav nav"
+        "clock-container picture-container"
+        "portfolio-container portfolio-container"
+        "footer footer";
+    grid-gap: 0.8rem;
+}
+
+#author{
+    width: 100%;
+    grid-area: author;
+    text-align: center;
+    margin-bottom: 5%;
+    font-weight: 300;
+}
+
+nav{
+    width: 100%;
+    grid-area: nav;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+
+.link{
+    white-space: nowrap;
+    text-decoration: none;
+    text-align: center;
+}
+
+.center{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.menu{
+    color: var(--dark-blue);
+    font-size: large;
+    text-decoration: none;
+    margin-bottom: 5%;
+}
+
+a:link, a:visited {
+    color: var(--dark-blue);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+#picture-container{
+    text-align: right;
+    grid-area: picture-container;
+}
+
+#picture{
+    height: auto;
+    width: auto;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+#clock-container{
+    grid-area: clock-container;
+}
+
+#clock{
+    margin-top: 15%;
+    text-align: center;
+    font-family: 'Unbounded', cursive;
+    font-weight: 400;
+    font-size: xxx-large;
+    color: var(--dark-blue);
+    text-shadow: 1px 1px 5px var(--light-blue);
+}
+
+#portfolio-container{
+    width: 100%;
+    grid-area: portfolio-container;
+    display: block;
+}
+
+#button-container{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button{
+    background-color: transparent;
+    border: none;
+}
+
+.button-picture{
+    width: 30px;
+}
+
+.button-label{
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: var(--dark-blue);
+    font-family: 'Unbounded', cursive;
+    font-size: large;
+    font-weight: 400;
+    padding: 7px 12px 7px 12px;
+    width: 200px;
+}
+
+.tab{
+    display: none;
+}
+
+.show {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.picture{
+    width: 350px;
+    margin: 5px;
+    box-shadow: 5px 5px 10px var(--blue-graph-transparent);
+}
+
+footer{
+    grid-area: footer;
+    text-align: center;
+}
+
+#itmo-logo{
+    height: auto;
+    width: auto;
+    max-width: 150px;
+    max-height: 200px;
+
+}
+
+@media screen and (max-width: 700px){
+    .container{
+        display: grid;
+        margin-left: 2%;
+        margin-right: 2%;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "author"
+        "nav"
+        "clock-container"
+        "picture-container"
+        "portfolio-container"
+        "footer";
+        grid-gap: 0.8rem;
+    }
+
+    .show {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body{
+        font-size: large;
+    }
+
+    #clock{
+        margin-top: 0;
+    }
+
+    #picture-container{
+        text-align: center;
+        padding-top: 5%;
+    }
+}

@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Darya Skvortsova" />
+    <meta name="description" content="third lab work for web-programming" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=0" />
+
+    <title>Лабораторная работа №3</title>
+
+    <h:outputStylesheet library="styles" name="style-main.css"/>
+    <h:outputScript library="scripts" name="checkbox-listener.js"/>
+
+    <link rel="shortcut icon" href="#{resource['images/favicon.ico']}"/>
+
+</h:head>
+<h:body>
+    <div class="container">
+        <div id="author" class="menu">
+            Скворцова Дарья 1006
+        </div>
+        <nav class="menu">
+            <a class="pointer link" href="https://github.com/iwishyoujoy/web-lab-3">Исходный код</a>
+            <a class="pointer link center" href="https://iwishyoujoy.ru">Портфолио</a>
+            <h:link outcome="toIndex" value="Вернуться назад" styleClass="pointer link"/>
+        </nav>
+        <div id="data-container">
+            <h:form id="form">
+                <div id="X">
+                    Выберите X:
+                    <table class="X-values">
+                        <tr>
+                            <td><h:selectBooleanCheckbox class="pointer checkbox" valueChangeListener="#{dotBean.dot.updateX}" id="value-2" onclick="checkboxListener()">
+                                    <f:ajax/>
+                                </h:selectBooleanCheckbox>
+                                <h:outputLabel for="value-2">-2</h:outputLabel></td>
+                            <td><h:selectBooleanCheckbox class="pointer checkbox" valueChangeListener="#{dotBean.dot.updateX}" id="value-1x5" onclick="checkboxListener()">
+                                    <f:ajax/>
+                                </h:selectBooleanCheckbox>
+                                <h:outputLabel for="value-1x5">-1.5</h:outputLabel></td>
+                            <td><h:selectBooleanCheckbox class="pointer checkbox" valueChangeListener="#{dotBean.dot.updateX}" id="value-1" onclick="checkboxListener()">
+                                    <f:ajax/>
+                                </h:selectBooleanCheckbox>
+                                <h:outputLabel for="value-1">-1</h:outputLabel></td>
+                        </tr>
+                        <tr>
+                            <td><h:selectBooleanCheckbox class="pointer checkbox" valueChangeListener="#{dotBean.dot.updateX}" id="value-0x5" onclick="checkboxListener()">
+                                    <f:ajax/>
+                                </h:selectBooleanCheckbox>
+                                <h:outputLabel for="value-0x5">-0.5</h:outputLabel></td>
+                            <td><h:selectBooleanCheckbox class="pointer checkbox" valueChangeListener="#{dotBean.dot.updateX}" id="value-0" onclick="checkboxListener()">
+                                    <f:ajax/>
+                                </h:selectBooleanCheckbox>
+                                <h:outputLabel for="value-0">0</h:outputLabel></td>
+                            <td><h:selectBooleanCheckbox class="pointer checkbox" valueChangeListener="#{dotBean.dot.updateX}" id="value0x5" onclick="checkboxListener()">
+                                    <f:ajax/>
+                                </h:selectBooleanCheckbox>
+                                <h:outputLabel for="value0x5">0.5</h:outputLabel></td>
+                        </tr>
+                        <tr>
+                            <td><h:selectBooleanCheckbox class="pointer checkbox" valueChangeListener="#{dotBean.dot.updateX}" id="value1" onclick="checkboxListener()">
+                                    <f:ajax/>
+                                </h:selectBooleanCheckbox>
+                                <h:outputLabel for="value1">1</h:outputLabel></td>
+                            <td><h:selectBooleanCheckbox class="pointer checkbox" valueChangeListener="#{dotBean.dot.updateX}" id="value1x5" onclick="checkboxListener()">
+                                    <f:ajax/>
+                                </h:selectBooleanCheckbox>
+                                <h:outputLabel for="value1x5">1.5</h:outputLabel></td>
+                            <td><h:selectBooleanCheckbox class="pointer checkbox" valueChangeListener="#{dotBean.dot.updateX}" id="value2" onclick="checkboxListener()">
+                                    <f:ajax/>
+                                </h:selectBooleanCheckbox>
+                                <h:outputLabel for="value2">2</h:outputLabel></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="Y">
+                    Введите Y [-3; 3]:
+                    <br/>
+                    <h:inputText id="Y-value" styleClass="y-value" value="#{dotBean.dot.y}" required="true" requiredMessage="Введите Y" validatorMessage="Не входит в [-3..3]" converterMessage="Введите число">
+                        <f:validateDoubleRange minimum="-3" maximum="3"/>
+                        <f:ajax render="Y-value-message"/>
+                    </h:inputText>
+                    <h:message id="Y-value-message" for="Y-value" styleClass="error"/>
+                </div>
+                <div id="R">
+                    Введите R [1; 4]:
+                    <br/>
+                    <h:inputText id="R-value" styleClass="r-value" value="#{dotBean.dot.r}" required="true" requiredMessage="Введите R" validatorMessage="Не входит в [1..4]" converterMessage="Введите число">
+                        <f:validateDoubleRange minimum="1" maximum="4"/>
+                        <f:ajax render="R-value-message"/>
+                    </h:inputText>
+                    <h:message id="R-value-message" for="R-value" styleClass="error"/>
+                </div>
+
+            </h:form>
+        </div>
+        <div id="graph-container">
+            <ui:include src="resources/images/graph.svg" />
+        </div>
+        <div id="button-container">
+            <h:commandButton type="submit" id="check" styleClass="pointer button" value="Проверить">
+                <f:ajax process="@form" listener="${dotBean.add()}" update="results, graph-container"/>
+            </h:commandButton>
+            <h:commandButton type="button" id="clear" styleClass="pointer button" value="Очистить">
+                <p:ajax listener="#{dotBean.clear()}" update="results, graph-container"/>
+            </h:commandButton>
+        </div>
+        <h:panelGroup layout="block" id="table-container">
+            <h:dataTable styleClass="table" id="results" var="dot" value="#{dotBean.dotsList}">
+                <h:column styleClass="table-value">
+                    <f:facet name="header">X</f:facet>
+                    ${dot.x}
+                </h:column>
+                <h:column styleClass="table-value">
+                    <f:facet name="header">Y</f:facet>
+                    ${dot.y}
+                </h:column>
+                <h:column styleClass="table-value">
+                    <f:facet name="header">R</f:facet>
+                    ${dot.r}
+                </h:column>
+                <h:column styleClass="table-value">
+                    <f:facet name="header">Текущее время</f:facet>
+                    ${dot.time}
+                </h:column>
+                <h:column styleClass="table-value">
+                    <f:facet name="header">Время работы программы (мкс)</f:facet>
+                    ${dot.scriptTime}
+                </h:column>
+                <h:column styleClass="table-value">
+                    <f:facet name="header">Результат</f:facet>
+                    ${dot.status}
+                </h:column>
+            </h:dataTable>
+        </h:panelGroup>
+
+        <footer>
+            <img class="itmo-logo" src="resources/images/itmo-light.png"/>
+        </footer>
+    </div>
+</h:body>
+</html>

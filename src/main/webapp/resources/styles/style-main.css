@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400&display=swap');
+
+:root{
+    --main-radius: 10px;
+    --main-padding: 5px;
+    --main-margin: 5px;
+    --dark-blue: rgb(4, 30, 55);
+    --pink-graph-transparent: rgba(251,160,159,80%);
+    --blue-graph-transparent: rgb(4, 30, 55, 30%);
+    --light-blue: rgb(4, 30, 55, 80%);
+    --light-background-color: rgb(255, 255, 255, 50%);
+    --background-color: rgba(244,244,244,255);
+}
+
+.pointer {cursor: pointer;}
+
+body{
+    background-image: url("#{resource['images/background-2.jpg']}");
+    background-size: cover;
+    font-family: 'Unbounded', cursive;
+    font-size: medium;
+    font-weight: 400;
+    color: var(--dark-blue);
+}
+
+.container{
+    display: grid;
+    margin-left: 20%;
+    margin-right: 20%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "author author"
+        "nav nav"
+        "data-container graph-container"
+        "button-container button-container"
+        "table-container table-container"
+        "footer footer";
+    grid-gap: 1rem;
+}
+
+#author{
+    width: 100%;
+    grid-area: author;
+    text-align: center;
+    margin-bottom: 5%;
+    font-weight: 300;
+}
+
+nav{
+    width: 100%;
+    grid-area: nav;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+.link{
+    white-space: nowrap;
+}
+
+.center{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.menu{
+    color: var(--dark-blue);
+    font-size: large;
+}
+
+a:link, a:visited {
+    color: var(--dark-blue);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+#data-container{
+    grid-area: data-container;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+#X{
+    padding: 15px 15px 15px 15px;
+    background-color: var(--light-background-color);
+    border-radius: var(--main-radius);
+    margin-bottom: 5%;
+}
+
+.X-values{
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    border: none;
+    border-collapse: collapse;
+    align-self: center;
+}
+
+.X-values td {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+#Y{
+    padding: 15px 15px 15px 15px;
+    background-color: var(--light-background-color);
+    border-radius: var(--main-radius);
+    margin-bottom: 5%;
+}
+
+.y-value, .r-value{
+    margin-top: 10px;
+}
+
+#R{
+    padding: 15px 15px 15px 15px;
+    background-color: var(--light-background-color);
+    border-radius: var(--main-radius);
+}
+
+.error{
+    font-size: small;
+    color: var(--dark-blue);
+    padding-left: 3px;
+}
+
+#graph-container{
+    padding-top: 15px;
+    grid-area: graph-container;
+    background-color: var(--light-background-color);
+    border-radius: var(--main-radius);
+    text-align: center;
+}
+
+svg text, #arrow{
+    fill: var(--dark-blue);
+}
+
+svg #triangle, #rectangle, #circle{
+    fill: var(--blue-graph-transparent);
+}
+
+#button-container{
+    margin-top: 20px;
+    grid-area: button-container;
+}
+
+.button {
+    background-color: var(--dark-blue);
+    color: var(--background-color);
+    border: var(--dark-blue);
+    border-radius: var(--main-radius);
+    font-family: 'Unbounded', cursive;
+    font-size: medium;
+    font-weight: 300;
+    text-align: center;
+    padding: 7px 12px 7px 12px;
+    transition: color 100ms;
+    margin-right: 2%;
+}
+
+.button:hover, .button:focus{
+    background-color: var(--light-blue);
+}
+
+.button:active{
+    background-color: var(--light-blue);
+    transition: color 100ms;
+}
+
+#table-container{
+    margin-top: 2%;
+    padding: 10px 10px 10px 10px;
+    grid-area: table-container;
+    background-color: var(--light-background-color);
+    border-radius: var(--main-radius);
+}
+
+#results {
+    width: 100%;
+    border-collapse: collapse;
+    border-style: hidden;
+    text-align: center;
+}
+
+#results th {
+    font-weight: 400;
+    border: 1px var(--dark-blue) solid;
+}
+
+#results td {
+    font-weight: 300;
+    border: 1px var(--dark-blue) solid;
+}
+
+footer{
+    grid-area: footer;
+    text-align: center;
+}
+
+.itmo-logo{
+    width: 20%;
+}
+
+@media screen and (max-width: 700px){
+    body{
+        margin-right: 2%;
+    }
+    .container{
+        margin-left: 2%;
+        margin-right: 2%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "author"
+        "nav"
+        "data-container"
+        "graph-container"
+        "button-container"
+        "table-container"
+        "footer";
+        grid-gap: 0.8rem;
+    }
+
+    nav{
+        text-align: center;
+    }
+
+    #X, #Y{
+        margin-bottom: 2%;
+    }
+}
