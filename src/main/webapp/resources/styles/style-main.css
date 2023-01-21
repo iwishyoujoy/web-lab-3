@@ -163,7 +163,7 @@ svg #triangle, #rectangle, #circle{
     margin-right: 2%;
 }
 
-.button:hover, .button:focus{
+.button:hover{
     background-color: var(--light-blue);
 }
 
@@ -232,5 +232,9 @@ footer{
 
     #X, #Y{
         margin-bottom: 2%;
+    }
+
+    #table-container{
+        font-size: small;
     }
 }

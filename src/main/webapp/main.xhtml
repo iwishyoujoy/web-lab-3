@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
     <meta charset="utf-8" />
     <meta name="author" content="Darya Skvortsova" />
@@ -100,41 +101,41 @@
             </h:form>
         </div>
         <div id="graph-container">
-            <ui:include src="resources/images/graph.svg" />
+            <ui:include src="graph.xhtml"/>
         </div>
         <div id="button-container">
-            <h:commandButton type="submit" id="check" styleClass="pointer button" value="Проверить">
-                <f:ajax process="@form" listener="${dotBean.add()}" update="results, graph-container"/>
+            <h:commandButton type="submit" id="check" styleClass="pointer button" value="Проверить" action="#{dotBean.add()}">
+                <f:ajax render="results"/>
             </h:commandButton>
-            <h:commandButton type="button" id="clear" styleClass="pointer button" value="Очистить">
-                <p:ajax listener="#{dotBean.clear()}" update="results, graph-container"/>
+            <h:commandButton type="button" id="clear" styleClass="pointer button" value="Очистить" action="#{dotBean.clear()}">
+                <f:ajax render="results"/>
             </h:commandButton>
         </div>
         <h:panelGroup layout="block" id="table-container">
             <h:dataTable styleClass="table" id="results" var="dot" value="#{dotBean.dotsList}">
                 <h:column styleClass="table-value">
                     <f:facet name="header">X</f:facet>
-                    ${dot.x}
+                    <h:outputText id="x" value="#{dot.x}"/>
                 </h:column>
                 <h:column styleClass="table-value">
                     <f:facet name="header">Y</f:facet>
-                    ${dot.y}
+                    <h:outputText id="y" value="#{dot.y}"/>
                 </h:column>
                 <h:column styleClass="table-value">
                     <f:facet name="header">R</f:facet>
-                    ${dot.r}
+                    <h:outputText id="r" value="#{dot.r}"/>
                 </h:column>
                 <h:column styleClass="table-value">
                     <f:facet name="header">Текущее время</f:facet>
-                    ${dot.time}
+                    <h:outputText id="time" value="#{dot.time}"/>
                 </h:column>
                 <h:column styleClass="table-value">
-                    <f:facet name="header">Время работы программы (мкс)</f:facet>
-                    ${dot.scriptTime}
+                    <f:facet name="header">Время работы (мкс)</f:facet>
+                    <h:outputText id="script-time" value="#{dot.scriptTime}"/>
                 </h:column>
                 <h:column styleClass="table-value">
                     <f:facet name="header">Результат</f:facet>
-                    ${dot.status}
+                    <h:outputText id="status" value="#{dot.status}"/>
                 </h:column>
             </h:dataTable>
         </h:panelGroup>

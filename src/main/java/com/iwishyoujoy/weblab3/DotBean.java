@@ -14,6 +14,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
 
+import static java.time.temporal.ChronoUnit.MINUTES;
+
 @Named("dotBean")
 @SessionScoped
 public class DotBean implements Serializable {
@@ -32,13 +34,21 @@ public class DotBean implements Serializable {
     }
 
     public void add(){
-        LocalDateTime startTime = LocalDateTime.now(ZoneOffset.UTC);
+        long timer = System.nanoTime();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String currentTime = formatter.format(LocalDateTime.now().minus(getTimezone(), MINUTES));
+
         dot.setStatus(AreaChecker.isHit(dot));
-        dot.setTime(startTime.minusMinutes(getTimezone()).format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
-        dot.setScriptTime(Math.round(LocalDateTime.now().minusNanos(startTime.getNano()).getNano() * 0.001));
+        dot.setTime(currentTime);
+        dot.setScriptTime((long) ((System.nanoTime()-timer)*0.001));
         dotsList.add(dot);
         dotDao.addDotToDB(dot);
+
+        Dot oldDot = dot;
         dot = new Dot();
+        dot.setX(oldDot.getX());
+        dot.setY(oldDot.getY());
+        dot.setR(oldDot.getR());
     }
 
     public void clear(){

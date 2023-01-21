@@ -14,9 +14,9 @@ public class Dot implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    private float x;
+    private float x = -2.0f;
     private float y = 0.0f;
-    private float r = 2.0f;
+    private float r = 1.0f;
     private boolean status;
     private String time;
     private long scriptTime;
@@ -45,8 +45,9 @@ public class Dot implements Serializable {
         this.r = radius;
     }
 
-    public boolean getStatus() {
-        return status;
+    public String getStatus() {
+        if (status) return "попадание!";
+        else return "промах!";
     }
 
     public void setStatus(boolean status) {
@@ -75,6 +76,5 @@ public class Dot implements Serializable {
         if (isChecked){
             setX(Float.parseFloat(id.substring(5,id.length()).replace("x", ".")));
         }
-        System.out.println(getX());
     }
 }
