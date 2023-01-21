@@ -16,6 +16,7 @@
 
     <h:outputStylesheet library="styles" name="style-main.css"/>
     <h:outputScript library="scripts" name="checkbox-listener.js"/>
+    <h:outputScript library="scripts" name="graph-updater.js"/>
 
     <link rel="shortcut icon" href="#{resource['images/favicon.ico']}"/>
 
@@ -100,14 +101,14 @@
 
             </h:form>
         </div>
-        <div id="graph-container">
+        <h:form id="graph-container">
             <ui:include src="graph.xhtml"/>
-        </div>
+        </h:form>
         <div id="button-container">
             <h:commandButton type="submit" id="check" styleClass="pointer button" value="Проверить" action="#{dotBean.add()}">
-                <f:ajax render="results"/>
+                <f:ajax render="results graph-container"/>
             </h:commandButton>
-            <h:commandButton type="button" id="clear" styleClass="pointer button" value="Очистить" action="#{dotBean.clear()}">
+            <h:commandButton type="button" id="clear" styleClass="pointer button" value="Очистить" action="#{dotBean.clear()}" onclick="clearGraph()">
                 <f:ajax render="results"/>
             </h:commandButton>
         </div>

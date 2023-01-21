@@ -50,7 +50,7 @@
         <c:forEach items="${dotBean.dotsList}" var="dot">
             <circle class="dot" cx="${150 + 50 * 2/dot.r * dot.x}"
                     cy="${150 - 50 * 2/dot.r * dot.y}" r="3"
-                    fill="#000000" stroke-width="0"></circle>
+                    fill="#{dot.status eq 'попадание!' ? '#f7a2a3' : '#132a42'}" stroke-width="0"></circle>
         </c:forEach>
     </svg>
 </ui:composition>
