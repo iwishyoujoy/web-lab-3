@@ -34,7 +34,7 @@ public class DotDao implements Serializable {
     public List<Dot> getDotsFromDB() {
         return entityManager.createQuery("select s from Dot s", Dot.class).getResultList();
     }
-
+    
     public void clearDotsInBD() {
         entityManager.getTransaction().begin();
         try {

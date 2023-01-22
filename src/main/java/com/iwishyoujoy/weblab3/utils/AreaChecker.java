@@ -7,8 +7,8 @@ public class AreaChecker {
         double x = dot.getX();
         double y = dot.getY();
         double r = dot.getR();
-        return ((x >= 0) && (y >= 0) && (y <= (-1)*x + r/2) ||
+        return ((x >= 0) && (y >= 0) && (y <= -x + r/2) ||
                 ((x*x + y*y <= r/2*r/2) && (x >= 0) && (y <= 0)) ||
-                ((x <= 0) && (x >= (-1)*r) && (y <= 0) && (y >= (-1)*r/2)));
+                ((x <= 0) && (x >= -r) && (y <= 0) && (y >= -r/2)));
     }
 }

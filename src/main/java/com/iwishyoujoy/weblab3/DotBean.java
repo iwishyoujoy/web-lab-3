@@ -76,7 +76,4 @@ public class DotBean implements Serializable {
         return timezone;
     }
 
-    public void setTimezone() {
-        timezone = Integer.parseInt(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("timezone"));
-    }
 }

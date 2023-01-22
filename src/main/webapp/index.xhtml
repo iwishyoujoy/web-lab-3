@@ -30,61 +30,85 @@
             <div id="clock"></div>
         </div>
         <div id="portfolio-container">
+<!--            <div id="about-container">-->
+<!--                Привет! Меня зовут Скворцова Дарья, и я фотограф, снимаю за цифру и пленку. Занимаюсь репортажной, уличной и портретной фотографией уже больше двух лет. Живу и учусь в Санкт-Петербурге.-->
+<!--                Больше моих фото можно найти по ссылке в навигации сайта! Спасибо за проявленный интерес к моему творчеству!-->
+<!--            </div>-->
             <div id="button-container">
-                <button class="button pointer" onclick="swipeLeft()"><img class="button-picture" src="resources/images/left-arrow.png"/></button>
+                <button class="button pointer" onclick="showYear(2021)">2021</button>
+                <button class="button pointer" onclick="showYear(2022)">2022</button>
+            </div>
+            <div id="swipe-container">
+                <button class="button-transparent pointer" onclick="swipeLeft()"><img class="button-picture" src="resources/images/left-arrow.png"/></button>
                 <button class="button-label"></button>
-                <button class="button pointer" onclick="swipeRight()"><img class="button-picture" src="resources/images/right-arrow.png"/></button>
+                <button class="button-transparent pointer" onclick="swipeRight()"><img class="button-picture" src="resources/images/right-arrow.png"/></button>
             </div>
             <div id="content-container">
-                <div class="tab october-22 show">
+                <div class="tab 2021 july-21">
                     <div class="content">
-                        <a class="picture-link" href="https://iwishyoujoy.ru/ruslan-18-oktyabrya-2022"><img class="picture" src="resources/images/portfolio/2022-10-18.jpg"/></a>
+                        <a class="picture-link" href="https://iwishyoujoy.ru/den-rozhdeniya-2021"><img class="picture" src="resources/images/portfolio/2021/2021-07-27(2).jpg"/></a>
                     </div>
                     <div class="content">
-                        <a class="picture-link" href="https://iwishyoujoy.ru/anya-16-oktyabrya-2022"><img class="picture" src="resources/images/portfolio/2022-10-16.jpg"/></a>
-                    </div>
-                </div>
-                <div class="tab august-22">
-                    <div class="content">
-                        <a class="picture-link" href="https://iwishyoujoy.ru/nikita-16-avgusta-2022"><img class="picture" src="resources/images/portfolio/2022-08-16.jpg"/></a>
-                    </div>
-                    <div class="content">
-                        <a class="picture-link" href="https://iwishyoujoy.ru/vanya-avgust-2022"><img class="picture" src="resources/images/portfolio/2022-08-12.jpg"/></a>
+                        <a class="picture-link" href="https://iwishyoujoy.ru/den-rozhdeniya-2021"><img class="picture" src="resources/images/portfolio/2021/2021-07-27(1).jpg"/></a>
                     </div>
                 </div>
-                <div class="tab july-22">
+                <div class="tab 2021 october-21">
                     <div class="content">
-                        <a class="picture-link" href="https://iwishyoujoy.ru/gleb-25-iyulya-2022"><img class="picture" src="resources/images/portfolio/2022-07-25.jpg"/></a>
+                        <a class="picture-link" href="https://iwishyoujoy.ru/saint-petersburg-autumn-2021"><img class="picture" src="resources/images/portfolio/2021/2021-10-10(1).jpg"/></a>
                     </div>
                     <div class="content">
-                        <a class="picture-link" href="https://iwishyoujoy.ru/liza-22-iyulya-2022"><img class="picture" src="resources/images/portfolio/2022-07-22.jpg"/></a>
-                    </div>
-                    <div class="content">
-                        <a class="picture-link" href="https://iwishyoujoy.ru/katya-9-iyulya-2022"><img class="picture" src="resources/images/portfolio/2022-07-09.jpg"/></a>
+                        <a class="picture-link" href="https://iwishyoujoy.ru/saint-petersburg-autumn-2021"><img class="picture" src="resources/images/portfolio/2021/2021-10-10(2).jpg"/></a>
                     </div>
                 </div>
-                <div class="tab june-22">
+                <div class="tab 2022 october-22 show">
                     <div class="content">
-                        <a class="picture-link" href="https://iwishyoujoy.ru/stasya-27-iyunya-2022"><img class="picture" src="resources/images/portfolio/2022-06-27.jpg"/></a>
+                        <a class="picture-link" href="https://iwishyoujoy.ru/ruslan-18-oktyabrya-2022"><img class="picture" src="resources/images/portfolio/2022/2022-10-18.jpg"/></a>
                     </div>
                     <div class="content">
-                        <a class="picture-link" href="https://iwishyoujoy.ru/lera-4-iyunya-2022"><img class="picture" src="resources/images/portfolio/2022-06-04.jpg"/></a>
-                    </div>
-                </div>
-                <div class="tab may-22">
-                    <div class="content">
-                        <a class="picture-link" href="https://iwishyoujoy.ru/vlad-10-maya-2022"><img class="picture" src="resources/images/portfolio/2022-05-10.jpg"/></a>
-                    </div>
-                    <div class="content">
-                        <a class="picture-link" href="https://iwishyoujoy.ru/masha-4-maya-2022"><img class="picture" src="resources/images/portfolio/2022-05-04.jpg"/></a>
+                        <a class="picture-link" href="https://iwishyoujoy.ru/anya-16-oktyabrya-2022"><img class="picture" src="resources/images/portfolio/2022/2022-10-16.jpg"/></a>
                     </div>
                 </div>
-                <div class="tab april-22">
+                <div class="tab 2022 august-22">
                     <div class="content">
-                        <a class="picture-link" href="https://iwishyoujoy.ru/nastya-18-aprelya-2022"><img class="picture" src="resources/images/portfolio/2022-04-18.jpg"/></a>
+                        <a class="picture-link" href="https://iwishyoujoy.ru/nikita-16-avgusta-2022"><img class="picture" src="resources/images/portfolio/2022/2022-08-16.jpg"/></a>
                     </div>
                     <div class="content">
-                        <a class="picture-link" href="https://iwishyoujoy.ru/artyom-13-aprelya-2022"><img class="picture" src="resources/images/portfolio/2022-04-13.jpg"/></a>
+                        <a class="picture-link" href="https://iwishyoujoy.ru/vanya-avgust-2022"><img class="picture" src="resources/images/portfolio/2022/2022-08-12.jpg"/></a>
+                    </div>
+                </div>
+                <div class="tab 2022 july-22">
+                    <div class="content">
+                        <a class="picture-link" href="https://iwishyoujoy.ru/gleb-25-iyulya-2022"><img class="picture" src="resources/images/portfolio/2022/2022-07-25.jpg"/></a>
+                    </div>
+                    <div class="content">
+                        <a class="picture-link" href="https://iwishyoujoy.ru/liza-22-iyulya-2022"><img class="picture" src="resources/images/portfolio/2022/2022-07-22.jpg"/></a>
+                    </div>
+                    <div class="content">
+                        <a class="picture-link" href="https://iwishyoujoy.ru/katya-9-iyulya-2022"><img class="picture" src="resources/images/portfolio/2022/2022-07-09.jpg"/></a>
+                    </div>
+                </div>
+                <div class="tab 2022 june-22">
+                    <div class="content">
+                        <a class="picture-link" href="https://iwishyoujoy.ru/stasya-27-iyunya-2022"><img class="picture" src="resources/images/portfolio/2022/2022-06-27.jpg"/></a>
+                    </div>
+                    <div class="content">
+                        <a class="picture-link" href="https://iwishyoujoy.ru/lera-4-iyunya-2022"><img class="picture" src="resources/images/portfolio/2022/2022-06-04.jpg"/></a>
+                    </div>
+                </div>
+                <div class="tab 2022 may-22">
+                    <div class="content">
+                        <a class="picture-link" href="https://iwishyoujoy.ru/vlad-10-maya-2022"><img class="picture" src="resources/images/portfolio/2022/2022-05-10.jpg"/></a>
+                    </div>
+                    <div class="content">
+                        <a class="picture-link" href="https://iwishyoujoy.ru/masha-4-maya-2022"><img class="picture" src="resources/images/portfolio/2022/2022-05-04.jpg"/></a>
+                    </div>
+                </div>
+                <div class="tab 2022 april-22">
+                    <div class="content">
+                        <a class="picture-link" href="https://iwishyoujoy.ru/nastya-18-aprelya-2022"><img class="picture" src="resources/images/portfolio/2022/2022-04-18.jpg"/></a>
+                    </div>
+                    <div class="content">
+                        <a class="picture-link" href="https://iwishyoujoy.ru/artyom-13-aprelya-2022"><img class="picture" src="resources/images/portfolio/2022/2022-04-13.jpg"/></a>
                     </div>
                 </div>
             </div>

@@ -55,7 +55,7 @@
                                     <f:ajax/>
                                 </h:selectBooleanCheckbox>
                                 <h:outputLabel for="value-0x5">-0.5</h:outputLabel></td>
-                            <td><h:selectBooleanCheckbox class="pointer checkbox" valueChangeListener="#{dotBean.dot.updateX}" id="value-0" onclick="checkboxListener()">
+                            <td><h:selectBooleanCheckbox class="pointer checkbox" valueChangeListener="#{dotBean.dot.updateX}" id="value0" onclick="checkboxListener()">
                                     <f:ajax/>
                                 </h:selectBooleanCheckbox>
                                 <h:outputLabel for="value-0">0</h:outputLabel></td>
@@ -92,7 +92,7 @@
                 <div id="R">
                     Введите R [1; 4]:
                     <br/>
-                    <h:inputText id="R-value" styleClass="r-value" value="#{dotBean.dot.r}" required="true" requiredMessage="Введите R" validatorMessage="Не входит в [1..4]" converterMessage="Введите число">
+                    <h:inputText id="R-value" styleClass="r-value" value="#{dotBean.dot.r}" onchange="updateMapWithR()" required="true" requiredMessage="Введите R" validatorMessage="Не входит в [1..4]" converterMessage="Введите число">
                         <f:validateDoubleRange minimum="1" maximum="4"/>
                         <f:ajax render="R-value-message"/>
                     </h:inputText>
@@ -106,7 +106,7 @@
         </h:form>
         <div id="button-container">
             <h:commandButton type="submit" id="check" styleClass="pointer button" value="Проверить" action="#{dotBean.add()}">
-                <f:ajax render="results graph-container"/>
+                <f:ajax render="results graph-container" onevent="updateMapWithR"/>
             </h:commandButton>
             <h:commandButton type="button" id="clear" styleClass="pointer button" value="Очистить" action="#{dotBean.clear()}" onclick="clearGraph()">
                 <f:ajax render="results"/>

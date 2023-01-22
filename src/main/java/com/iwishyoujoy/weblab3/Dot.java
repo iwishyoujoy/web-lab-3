@@ -16,7 +16,7 @@ public class Dot implements Serializable {
     private Long id;
     private float x = -2.0f;
     private float y = 0.0f;
-    private float r = 1.0f;
+    private float r = 2.0f;
     private boolean status;
     private String time;
     private long scriptTime;
