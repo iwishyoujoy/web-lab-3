@@ -63,6 +63,8 @@ function mousemoveGraphListener(event){
 }
 
 function onclickGraphListener(event){
+    let r = getR();
+    if (r<1 || r>4) return;
     let map = document.getElementById("graph");
 
     let rect = map.getBoundingClientRect();
