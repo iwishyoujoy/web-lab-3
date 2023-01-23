@@ -78,6 +78,8 @@ function onclickGraphListener(event){
 
 function updateMapWithR(){
     let r = getR();
+
+    if (r>4 || r<1) return;
     let triangle = document.getElementById("triangle");
     let rectangle = document.getElementById("rectangle");
     let circle = document.getElementById("circle");
